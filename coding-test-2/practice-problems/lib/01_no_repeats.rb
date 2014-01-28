@@ -1,5 +1,5 @@
 def no_repeats(year_start, year_end)
-  @start = year_start
+	@start = year_start
 	@end = year_end
 
 	def no_repeat?(year)
@@ -25,4 +25,6 @@ def no_repeats(year_start, year_end)
 	end
 
 	return return_arr
+
 end
+
