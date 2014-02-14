@@ -1,18 +1,14 @@
-def bubble_sort(arr)
+def bubble_sort array
+	sorted = false
 
-	if arr.length <= 1 then return_arr = arr end
-	swapped = true
-	while swapped do
-	    swapped = false
-	    temp = nil
-	    for i in (0..(arr.length - 2)) 
-	       	if arr[i] > arr[i+1]
-	        	temp = arr[i]
-	        	arr[i] = arr[i+1]
-	        	arr[i+1] = temp
-	        	swapped = true
-	     	end
-	    end    
+	until sorted
+		sorted = true
+		0.upto(array.length-2) do |i|
+			if (array[i] > array[i+1])
+				array[i], array[i+1] = array[i+1], array[i]
+				sorted = false
+			end
+		end
 	end
-  	arr
+	array
 end

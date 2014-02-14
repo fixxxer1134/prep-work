@@ -1,17 +1,15 @@
-def morse_encode str
-
-	str.split(/ /).map! { |word| morse_encode_word(word)}.join("  ")
-
-end
-
-
-def morse_encode_word word
-
-	word.split(//).map! { |l| HASH[l]}.join(" ")
+def morse_encode(str)
+	
+	phrase = str.split(/ /)
+	phrase.map! do |word|
+		word = translate_word(word)
+		word
+	end.join "  "
 
 end
 
-HASH = {	"a" => ".-",
+def translate_word(word)
+	hash = {"a" => ".-",
 			"b" => "-...",
 			"c" => "-.-.",
 			"d" => "-..",
@@ -37,13 +35,8 @@ HASH = {	"a" => ".-",
 			"x" => "-..-",
 			"y" => "-.--",
 			"z" => "--.."
-		}
-
-
-
-
-
-
-
-
-
+			}
+	word.split(//).map! do |letter|
+		letter = hash[letter]
+		end.join " "
+end

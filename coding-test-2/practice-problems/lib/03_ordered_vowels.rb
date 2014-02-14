@@ -1,28 +1,16 @@
-def ordered_vowel_words(str)
-	@str = str.split(/ /)
-	return_arr = []
-
-		@str.map do |word|
-			if ordered_vowel_word?(word) then
-				return_arr << word
-			else
-			end
-		end
-		return_arr.join(" ")
+def ordered_vowel_words str
+	
+	str.split(" ").select {
+		|word| ordered_word?(word)
+		}.join " "
 end
 
-def ordered_vowel_word?(word)
-	vowels = []
-	letters = word.split(//)
-
-	letters.each do |x|
-		if x =~ /[aeiou]/
-			vowels << x
-		end
-	end
-
-	if vowels.join == vowels.sort.join
+def ordered_word? word
+	vowels = ["a", "e", "i", "o", "u"]
+	vowel_list = word.each_char.select {|letter|vowels.include?(letter)}
+	
+	if vowel_list.join == vowel_list.sort.join
 		return true
-	else return false
+	else false
 	end
 end

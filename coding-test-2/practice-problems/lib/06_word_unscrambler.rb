@@ -1,10 +1,8 @@
-def word_unscrambler(str, words)
-	return_arr = []
+def word_unscrambler string, array
+	
+	str = string.split(//).sort
 
-	words.each do |word|
-		if str.split(//).sort == word.split(//).sort
-			return_arr << word
-		end
-	end
-	return_arr
+	return_arr = array.select {|word| word.split(//).sort == str}
+
+
 end

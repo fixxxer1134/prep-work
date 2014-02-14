@@ -1,30 +1,20 @@
-def no_repeats(year_start, year_end)
-	@start = year_start
-	@end = year_end
-
-	def no_repeat?(year)
-		yr = year.to_s.split(//).sort.join
-		if yr.squeeze.length < yr.length
-			false
-		else true
-		end
-	end
-
+def no_repeats year1, year2
 	return_arr = []
-	arr = (@start..@end).to_a
 
-	if @start == @end && no_repeat?(@start) then
-		arr = @start
-		return_arr << arr
-
-	else arr.each do |x|
-			if no_repeat?(x)
-				return_arr << x
-			end
+	(year1..year2).each do |year|
+		if no_repeat?(year)
+			return_arr << year
 		end
+
 	end
-
-	return return_arr
-
+	return_arr
 end
 
+def no_repeat? year
+		year = year.to_s
+		seen = []
+		year.split(//).each do |num|
+			seen << num if !(seen.include?(num))
+		end
+		seen.length < year.length ? false : true
+end
